@@ -1,0 +1,61 @@
+<view class="container">
+  <!-- Formulario para ingresar datos -->
+  <form class="form-container" onSubmit="onSubmit">
+    <view class="form-label">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" required></input>
+    </view>
+    <view class="form-label">
+      <label for="age">Edad:</label>
+      <input type="number" id="age" name="age" required></input>
+    </view>
+    <view class="form-label">
+      <label class="form-label">
+        Grado:
+        <slider
+          class="form-slider"
+          name="grade"
+          min="1"
+          max="11"
+          step="1"
+          required
+          show-value
+        />
+      </label>
+    </view>
+    <button form-type="submit" class="form-button">Agregar estudiante</button>
+    <button form-type="reset" class="form-button">Limpiar</button>
+  </form>
+
+  <!-- Lista de estudiantes ingresados -->
+  <view class="list-container">
+    <view class="list-header">
+      <view class="list-column">Nombre</view>
+      <view class="list-column">Edad</view>
+      <view class="list-column">Grado</view>
+      <view class="list-column"></view>
+    </view>
+    <view class="list-body">
+      <block a:for="{{students}}" a:key="id">
+        <view class="list-row">
+          <view class="list-column">{{item.name}}</view>
+          <view class="list-column">{{item.age}}</view>
+          <view class="list-column">{{item.grade}}</view>
+          <view class="list-column">
+            <button
+              type="button"
+              class="delete-button"
+              data-id="{{item.id}}"
+              onTap="onDelete"
+            >
+              Eliminar
+            </button>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- Botón para exportar los datos<button type="primary" form-type="button" onTap="downloadCSV">
+    Descargar CSV</button><button type="primary" onTap="onExport">Exportar a PDF</button> -->
+</view>

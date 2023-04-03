@@ -1,0 +1,4 @@
+page {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: #f7f7f7;
+}
